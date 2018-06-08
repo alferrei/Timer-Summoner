@@ -3,12 +3,12 @@ package summoner;
 import classes.Spell;
 
 public class Ghost implements Spell {
-	private String nome = "Ghost";
+	private String nome = "Fantasma";
 	private int tempo = 180;
 
 	@Override
 	public String contagem(int tempo, String nome) {
-		return (this.nome +" - "+this.tempo--);
+		return (this.nome + " - " + this.tempo--);
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class Ghost implements Spell {
 
 	@Override
 	public String getNome(String Nome) {
-		return "Ghost - ";
+		return this.nome + " - ";
 	}
 
 	@Override

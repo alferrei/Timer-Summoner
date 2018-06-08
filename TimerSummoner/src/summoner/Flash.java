@@ -8,7 +8,7 @@ public class Flash implements Spell {
 
 	@Override
 	public String contagem(int tempo, String nome) {
-		return (this.nome +" - "+this.tempo--);
+		return (this.nome + " - " + this.tempo--);
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class Flash implements Spell {
 
 	@Override
 	public String getNome(String Nome) {
-		return "Flash - ";
+		return this.nome + " - ";
 	}
 
 	@Override

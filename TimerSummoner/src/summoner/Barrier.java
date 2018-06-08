@@ -3,7 +3,7 @@ package summoner;
 import classes.Spell;
 
 public class Barrier implements Spell {
-	private String nome = "Barrier";
+	private String nome = "Barreira";
 	private Integer tempo = 180;
 
 	@Override
@@ -23,7 +23,7 @@ public class Barrier implements Spell {
 
 	@Override
 	public String getNome(String Nome) {
-		return "Barrier - ";
+		return this.nome + " - ";
 	}
 
 	@Override
