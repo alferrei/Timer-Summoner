@@ -6,4 +6,5 @@ public interface Spell {
 	boolean taContando(boolean conta);
 	String getNome(String Nome);
 	int getTempo(int tempo);
+	String contagem(int tempo);
 }

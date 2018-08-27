@@ -4,7 +4,7 @@ import classes.Spell;
 
 public class Teleport implements Spell {
 	private String nome = "Teleporte";
-	private Integer tempo = 300;
+	private Integer tempo = 360;
 
 	@Override
 	public String contagem(int tempo, String nome) {
