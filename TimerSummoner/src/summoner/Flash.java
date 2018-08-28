@@ -7,8 +7,16 @@ public class Flash implements Spell {
 	private Integer tempo = 300;
 
 	@Override
-	public String contagem(int tempo, String nome) {
-		return (this.nome + " - " + this.tempo--);
+	public String contagem(int tempo) {
+		// taContando(true);
+		for (int segundos = tempo; segundos != 0; segundos--) {
+			tempo = segundos;
+			System.out.println(nome + " - " + tempo);
+		}
+		// taContando(false);
+		// isZerado(true);
+		;
+		return nome + tempo;
 	}
 
 	@Override
@@ -30,5 +38,6 @@ public class Flash implements Spell {
 	public int getTempo(int tempo) {
 		return this.tempo;
 	}
+
 
 }

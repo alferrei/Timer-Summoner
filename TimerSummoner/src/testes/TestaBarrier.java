@@ -8,8 +8,6 @@ public class TestaBarrier {
 		Barrier barreira = new Barrier();
 		{
 			barreira.contagem(barreira.tempo);
-			// barreira.contagem(barreira.getTempo(barreira.tempo),
-			// barreira.getNome(barreira.nome));
 		}
 	}
 }

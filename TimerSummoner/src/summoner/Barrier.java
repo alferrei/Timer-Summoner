@@ -39,11 +39,6 @@ public class Barrier implements Spell {
 		return this.tempo;
 	}
 
-	@Override
-	public String contagem(int segundos, String nome) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 }
