@@ -3,20 +3,16 @@ package summoner;
 import classes.Spell;
 
 public class Barrier implements Spell {
-	public String nome = "Barreira";
-	public Integer tempo = 180;
+	static final String NOME_SUMMONER = "Barreira";
+	static final Integer TEMPO_SUMMONER = 180;
 
 	@Override
-	public String contagem(int tempo) {
-		// taContando(true);
-		for (int segundos = tempo; segundos != 0; segundos--) {
-			tempo = segundos;
-			System.out.println(nome + " - " + tempo);
+	public String contagem(int TEMPO_SUMMONER) {
+		for (int segundos = TEMPO_SUMMONER; segundos != 0; segundos--) {
+			TEMPO_SUMMONER = segundos;
+			System.out.println(Barrier.NOME_SUMMONER + " - " + TEMPO_SUMMONER);
 		}
-		// taContando(false);
-		// isZerado(true);
-		;
-		return nome + tempo;
+		return NOME_SUMMONER + TEMPO_SUMMONER;
 	}
 
 	@Override
@@ -30,15 +26,13 @@ public class Barrier implements Spell {
 	}
 
 	@Override
-	public String getNome(String Nome) {
-		return this.nome + " - ";
+	public String getNome(String NOME_SUMMONER) {
+		return Barrier.NOME_SUMMONER + " - ";
 	}
 
 	@Override
-	public int getTempo(int tempo) {
-		return this.tempo;
+	public int getTempo(int TEMPO_SUMMONER) {
+		return Barrier.TEMPO_SUMMONER;
 	}
-
-
 
 }
