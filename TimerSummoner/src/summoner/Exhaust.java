@@ -6,7 +6,6 @@ public class Exhaust implements Spell {
 	private String nome = "Exaustão";
 	private int tempo = 210;
 
-	@Override
 	public String contagem(int tempo) {
 		// taContando(true);
 		for (int segundos = tempo; segundos != 0; segundos--) {
@@ -19,25 +18,12 @@ public class Exhaust implements Spell {
 		return nome + tempo;
 	}
 
-	@Override
-	public boolean isZerado(boolean zero) {
-		return false;
-	}
-
-	@Override
-	public boolean taContando(boolean conta) {
-		return false;
-	}
-
-	@Override
 	public String getNome(String Nome) {
 		return this.nome + " - ";
 	}
 
-	@Override
 	public int getTempo(int tempo) {
 		return this.tempo;
 	}
-
 
 }

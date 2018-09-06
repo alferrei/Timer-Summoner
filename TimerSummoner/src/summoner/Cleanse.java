@@ -3,40 +3,23 @@ package summoner;
 import classes.Spell;
 
 public class Cleanse implements Spell {
-	private String nome = "Purificar";
-	private int tempo = 210;
+	private static final String NOME_SUMMONER = "Purificar";
+	private static final Integer TEMPO_SUMMONER = 210;
 
-	@Override
-	public String contagem(int tempo) {
-		// taContando(true);
-		for (int segundos = tempo; segundos != 0; segundos--) {
-			tempo = segundos;
-			System.out.println(nome + " - " + tempo);
+	public String contagem(int TEMPO_SUMMONER, String NOME_SUMMONER) {
+		for (int segundos = TEMPO_SUMMONER; segundos != 0; segundos--) {
+			TEMPO_SUMMONER = segundos;
+			System.out.println(Cleanse.NOME_SUMMONER + " - " + TEMPO_SUMMONER);
 		}
-		// taContando(false);
-		// isZerado(true);
-		;
-		return nome + tempo;
+		return NOME_SUMMONER + TEMPO_SUMMONER;
 	}
 
-	@Override
-	public boolean isZerado(boolean zero) {
-		return false;
+	public static String getNomeSummoner() {
+		return NOME_SUMMONER;
 	}
 
-	@Override
-	public boolean taContando(boolean conta) {
-		return false;
-	}
-
-	@Override
-	public String getNome(String Nome) {
-		return this.nome + " - ";
-	}
-
-	@Override
-	public int getTempo(int tempo) {
-		return this.tempo;
+	public static Integer getTempoSummoner() {
+		return TEMPO_SUMMONER;
 	}
 
 }

@@ -1,9 +1,21 @@
 package classes;
 
+import summoner.Barrier;
+
 public interface Spell {
-	boolean isZerado(boolean zero);
-	boolean taContando(boolean conta);
-	String getNome(String Nome);
-	int getTempo(int tempo);
-	String contagem(int tempo);
+	static void getNome(String Nome) {
+		Nome = Nome;
+	}
+
+	static void getTempo(int tempo) {
+		tempo = tempo;
+	}
+
+	public static String contagem(int tempo, String nome) {
+		for (int segundos = tempo; segundos != 0; segundos--) {
+			tempo = segundos;
+			System.out.println(nome + " - " + tempo);
+		}
+		return nome + tempo;
+	}
 }

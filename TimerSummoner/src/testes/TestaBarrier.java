@@ -1,13 +1,14 @@
 package testes;
 
-import summoner.Barrier;
+import summoner.*;
 
 public class TestaBarrier {
 
 	public static void main(String[] args) {
 		Barrier barreira = new Barrier();
-		{
-			barreira.contagem(barreira.tempo);
+		Cleanse purificar = new Cleanse();	{
+			barreira.contagem(barreira.TEMPO_SUMMONER);
+			purificar.contagem(purificar.getTempoSummoner(), purificar.getNomeSummoner());
 		}
 	}
 }
