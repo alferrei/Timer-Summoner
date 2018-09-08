@@ -1,21 +1,17 @@
 package summoner;
 
-import classes.Spell;
+public class Barrier extends Spells {
+	private static final String NOME_SUMMONER = "Barreira";
+	private static final Integer TEMPO_SUMMONER = 180;
 
-public class Barrier implements Spell {
-	 public static final String NOME_SUMMONER = "Barreira";
-	 public static final Integer TEMPO_SUMMONER = 180;
-
-	public String contagem(int TEMPO_SUMMONER) {
-		return NOME_SUMMONER + TEMPO_SUMMONER;
+	@Override
+	public String getNome() {
+		return NOME_SUMMONER;
 	}
 
-	public String getNome(String NOME_SUMMONER) {
-		return Barrier.NOME_SUMMONER + " - ";
-	}
-
-	public int getTempo(int TEMPO_SUMMONER) {
-		return Barrier.TEMPO_SUMMONER;
+	@Override
+	public int getTempo() {
+		return TEMPO_SUMMONER;
 	}
 
 }
