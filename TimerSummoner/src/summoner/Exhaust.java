@@ -2,28 +2,18 @@ package summoner;
 
 import classes.Spell;
 
-public class Exhaust implements Spell {
-	private String nome = "Exaustão";
-	private int tempo = 210;
+public class Exhaust extends Spells {
+	private static final String NOME_SUMMONER = "Exaustão";
+	private static final int TEMPO_SUMMONER = 210;
 
-	public String contagem(int tempo) {
-		// taContando(true);
-		for (int segundos = tempo; segundos != 0; segundos--) {
-			tempo = segundos;
-			System.out.println(nome + " - " + tempo);
-		}
-		// taContando(false);
-		// isZerado(true);
-		;
-		return nome + tempo;
+	@Override
+	public String getNome() {
+		return NOME_SUMMONER;
 	}
 
-	public String getNome(String Nome) {
-		return this.nome + " - ";
-	}
-
-	public int getTempo(int tempo) {
-		return this.tempo;
+	@Override
+	public int getTempo() {
+		return TEMPO_SUMMONER;
 	}
 
 }
