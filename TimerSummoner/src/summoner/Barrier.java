@@ -1,5 +1,7 @@
 package summoner;
 
+import classes.Spells;
+
 public class Barrier extends Spells {
 	private static final String NOME_SUMMONER = "Barreira";
 	private static final Integer TEMPO_SUMMONER = 180;

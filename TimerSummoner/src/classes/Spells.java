@@ -1,6 +1,4 @@
-package summoner;
-
-import classes.Spell;
+package classes;
 
 public abstract class Spells implements Spell {
 	String nome;

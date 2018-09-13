@@ -1,5 +1,7 @@
 package summoner;
 
+import classes.Spells;
+
 public class Cleanse extends Spells {
 	private static final String NOME_SUMMONER = "Purificar";
 	private static final Integer TEMPO_SUMMONER = 210;

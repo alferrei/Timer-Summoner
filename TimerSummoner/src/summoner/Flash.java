@@ -1,6 +1,7 @@
 package summoner;
 
 import classes.Spell;
+import classes.Spells;
 
 public class Flash extends Spells {
 	private static final String NOME_SUMMONER = "Flash";

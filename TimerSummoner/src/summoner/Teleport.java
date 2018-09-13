@@ -1,5 +1,7 @@
 package summoner;
 
+import classes.Spells;
+
 public class Teleport extends Spells {
 	private static final String NOME_SUMMONER = "Teleporte";
 	private static final Integer TEMPO_SUMMONER = 360;
