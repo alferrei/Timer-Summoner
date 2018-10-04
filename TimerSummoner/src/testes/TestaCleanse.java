@@ -9,5 +9,6 @@ public class TestaCleanse {
 		{
 			purificar.contagem(purificar.getTempo(), purificar.getNome());
 		}
+
 	}
 }
