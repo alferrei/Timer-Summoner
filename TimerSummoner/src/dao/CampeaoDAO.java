@@ -15,36 +15,36 @@ import classes.Campeao;
 public class CampeaoDAO {
 	public Campeao campeao;
 
-	public String pegaNomeCampeao(String nomeChamp) {
+	void validaNome(String nome) {
+
+		if (nome != null) {
+			CampeaoDAO campeao = new CampeaoDAO();
+			campeao.getChampName(nome);
+		} else {
+			// criar tratamento de exception pra esse carinha aqui
+			System.out.println("Nome de campeão não é válido");
+		}
+	}
+
+	public String getChampName(String nome) {
 		Connection con = SQLConnection.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rst = null;
 
-		if (nomeChamp != null) {
-			try {
-				stmt = con.prepareStatement("SELECT nome FROM campeao WHERE nome LIKE ?");
-				stmt.setString(1, "%" + nomeChamp + "%");
+		try {
+			stmt = con.prepareStatement("SELECT nome FROM campeao WHERE nome LIKE ?");
+			stmt.setString(1, "%" + nome + "%");
 
-				while (rst.next()) {
-					Campeao campeao = new Campeao();
-					campeao.setNome(rst.getString("nome"));		}
-			} catch (SQLException e) {
-				Logger.getLogger(CampeaoDAO.class.getName()).log(Level.SEVERE, null, e);
-			} finally {
-				SQLConnection.closeConnection(con, stmt, rst);
+			while (rst.next()) {
+				Campeao campeao = new Campeao();
+				campeao.setNome(rst.getString("nome"));
 			}
-			return campeao.getNome();
+		} catch (SQLException e) {
+			Logger.getLogger(CampeaoDAO.class.getName()).log(Level.SEVERE, null, e);
+		} finally {
+			SQLConnection.closeConnection(con, stmt, rst);
 		}
-
 		return campeao.getNome();
-
-	}
-
-	void iniciaContador() {
-		// precisa abrir e gerar uma conexão com o banco aqui
-		if (campeao == null) {
-
-		}
 	}
 
 }
