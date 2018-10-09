@@ -4,7 +4,6 @@ public abstract class Spells implements Spell {
 	String nome;
 	int tempo;
 
-
 	protected String getNome() {
 		return this.nome;
 	}
@@ -13,13 +12,12 @@ public abstract class Spells implements Spell {
 		return this.tempo;
 	}
 
-	public void pegaNomeSpell(String nomeSpell) {
-		// *String[] args = null;
-		// String spell[] = args[0].toString().trim().split(" ");
-		// String nomeSpell = spell[0];
-		// System.out.println(nomeSpell);
-		
-		
+	protected Spells(String nome) {
+
+	}
+
+	protected Spells(String nome, int tempo) {
+
 	}
 
 }

@@ -1,28 +1,26 @@
 package dao;
 
+import classes.Spells;
 import classes.SummonerSpells;
 
-public class SpellsDAO {
+public class SpellsDAO extends Spells {
 
-	public static boolean verificaNomeSpell(String nome) {
-		SummonerSpells[] summoners = SummonerSpells.values();
-		for (SummonerSpells summoner : summoners)
-			if (summoner.contains(nome)) {
-				return true;
-			}
-		return false;
+	public SpellsDAO(String nome, int tempo) {
+		super(nome, tempo);
 	}
 
-	public SummonerSpells getNomeSpell(String nome) {
-		SummonerSpells spellPrincipal = null;
-		SpellsDAO.verificaNomeSpell(nome);
-		if (verificaNomeSpell("") == true) {
-			System.out.println(nome);
-			return spellPrincipal;
-		} else {
-			System.out.println("Nome não válido");
+	public SpellsDAO(String nome) {
+		super(nome);
+	}
+
+	public static void verifyNomeSpell(String nome) {
+		try {
+			SummonerSpells.contains(nome);	
+		} catch(NullPointerException e){
+			System.out.println("Parâmetro inválido, erro capturado" + e );
 		}
-		return spellPrincipal;
+		
+		System.out.println(nome);
 	}
 
 	public String contagem(int tempo, String nome) {
