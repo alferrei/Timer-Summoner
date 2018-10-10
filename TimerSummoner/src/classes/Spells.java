@@ -4,6 +4,10 @@ public abstract class Spells implements Spell {
 	String nome;
 	int tempo;
 
+	public Spells() {
+
+	}
+
 	protected String getNome() {
 		return this.nome;
 	}

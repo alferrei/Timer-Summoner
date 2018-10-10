@@ -1,31 +1,26 @@
 package classes;
 
 public enum SummonerSpells {
-	flash(300), purificar(210), barreira(210), exaustão(210), teleporte(360), fantasma(180), incendiar(210), curar(270);
+	FLASH(300), 
+	PURIFICAR(210), 
+	BARREIRA(180), 
+	EXAUSTÃO(210), 
+	TELEPORTE(360), 
+	FANTASMA(180), 
+	INCENDIAR(210), 
+	CURAR(270);
 
-	public int segundos;
-
+	private int segundos;
+//CONSTRUTORES
 	public int getSegundos() {
 		return segundos;
 	}
-
+	
 	SummonerSpells(int segundos) {
 		this.segundos = segundos;
 	}
-
-	private String name;
-
-	SummonerSpells(String name) {
-		this.name = name();
-	}
-
-	public static SummonerSpells contains(String name) {
-		for (SummonerSpells ss : SummonerSpells.values()) {
-			if (ss.name.equalsIgnoreCase(name)) {
-				System.out.println(name + " entrada "+ ss.name + " enum");
-				return ss;
-			}
-		}
-		throw new NullPointerException("Nome inválido");
+//METODO QUE BUSCA UM VALOR DO ENUM
+	public static SummonerSpells forName(String name) {
+		return valueOf(name.toUpperCase());
 	}
 }
