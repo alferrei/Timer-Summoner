@@ -1,6 +1,6 @@
 package classes;
 
-public abstract class Spells implements Spell {
+public abstract class Spells {
 	String nome;
 	int tempo;
 
@@ -8,19 +8,19 @@ public abstract class Spells implements Spell {
 
 	}
 
-	protected String getNome() {
-		return this.nome;
+	public String getNome() {
+		return nome;
 	}
 
-	protected int getTempo() {
-		return this.tempo;
+	public int getTempo() {
+		return tempo;
 	}
 
-	protected Spells(String nome) {
+	public Spells(String nome) {
 
 	}
 
-	protected Spells(String nome, int tempo) {
+	public Spells(String nome, int tempo) {
 
 	}
 

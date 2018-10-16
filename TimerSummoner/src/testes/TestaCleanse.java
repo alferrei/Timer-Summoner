@@ -8,8 +8,8 @@ public class TestaCleanse {
 	public static void main(String[] args) {
 		// teste dos get nome
 		String nome = "purificar";
-		SummonerSpells spell = SpellsDAO.verifySpell(nome);
-		System.out.println(spell.name().toLowerCase() + " segundos: " + spell.getSegundos());
+		SpellsDAO spell = spell.verifySpell(nome);
+		System.out.println(spell);
 
 		// teste do segundos e contador
 		

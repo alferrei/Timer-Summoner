@@ -14,11 +14,19 @@ import classes.SummonerSpells;
  * @since 2018-10-10
  */
 public class SpellsDAO extends Spells {
-
+/** constructors
+ Included constructor that receives a enumType
+ */
+	SummonerSpells ss;
+	
 	public SpellsDAO(String nome, int tempo) {
 		super(nome, tempo);
 	}
 
+	public SpellsDAO(SummonerSpells ss)
+	{
+		this.ss = ss;
+	}
 	public SpellsDAO(String nome) {
 		super(nome);
 	}
@@ -38,10 +46,15 @@ public class SpellsDAO extends Spells {
 	 *             name is actually null
 	 * @return informations that are on the enum and that match
 	 */
+	
+	public SpellsDAO toDao(SummonerSpells ss) {
+		SpellsDAO spellConverted = new SpellsDAO(ss);
+		return spellConverted;
+	}
 
 	public SpellsDAO verifySpell(String nome) throws IllegalArgumentException, NullPointerException {
 		SummonerSpells spell = null;
-		SpellsDAO spellSaida= null;
+		SpellsDAO spellSaida = new SpellsDAO();
 		try {
 			spell = SummonerSpells.forName(nome.toUpperCase().trim());
 		} catch (IllegalArgumentException iex) {
@@ -49,15 +62,11 @@ public class SpellsDAO extends Spells {
 		} catch (NullPointerException nex) {
 			System.out.println(nex.toString());
 		}
-		spellSaida = SpellsDao(spell.name(), spell.getSegundos());
-		return spell;
+		spellSaida = spellSaida.toDao(spell);
+		return spellSaida;
 
 	}
 
-
-	public static long convertSecondsSpell(int segundos) {
-		return TimeUnit.SECONDS.toSeconds(segundos);
-	}
 
 	/**
 	 * 
@@ -69,11 +78,10 @@ public class SpellsDAO extends Spells {
 
 	public String contagem(SummonerSpells spellToCount) {
 		SpellsDAO spells = new SpellsDAO();
-		SummonerSpells spell = spells.verifySpell(spellToCount.name());
+		SpellsDAO spell = spells.verifySpell(spellToCount.name());
 		spells = spells.verifySpell(spell.name());
 		return spellToCount.name() + spellToCount.getSegundos();
 	}
-
 
 	public void count(int secs) {
 		Countdown count = new Countdown();
