@@ -1,6 +1,6 @@
 package dao;
 
-import classes.SQLConnection;
+/*import classes.SQLConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,26 +8,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.Logger;*/
 
 import classes.Campeao;
+import classes.SummonerSpells;
 
 public class CampeaoDAO {
-	public Campeao campeao;
-
-	void validaNome(String nome) {
-
-		if (nome != null) {
-			CampeaoDAO campeao = new CampeaoDAO();
-			campeao.getChampName(nome);
-		} else {
-			// criar tratamento de exception pra esse carinha aqui
-			System.out.println("Nome de campeão não é válido");
-		}
+	private String nome;
+	private String apelido;
+	
+	public CampeaoDAO getChamp(String name) {
+		CampeaoDAO champ = new CampeaoDAO();
+		SummonerSpells ss = null;
+		
+		return champ;
 	}
 
 	public String getChampName(String nome) {
-		Connection con = SQLConnection.getConnection();
+		/*Connection con = SQLConnection.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rst = null;
 
@@ -43,7 +41,7 @@ public class CampeaoDAO {
 			Logger.getLogger(CampeaoDAO.class.getName()).log(Level.SEVERE, null, e);
 		} finally {
 			SQLConnection.closeConnection(con, stmt, rst);
-		}
+		}*/
 		return campeao.getNome();
 	}
 

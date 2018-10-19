@@ -1,8 +1,6 @@
 package dao;
 
-import java.util.concurrent.TimeUnit;
 import classes.Countdown;
-import classes.Spells;
 import classes.SummonerSpells;
 
 /**
@@ -10,29 +8,53 @@ import classes.SummonerSpells;
  * of spells and seconds given a name typed by the user
  * 
  * @author alferrei
- * @version 0.2
+ * @version 1
  * @since 2018-10-10
  */
-public class SpellsDAO extends Spells {
-/** constructors
- Included constructor that receives a enumType
- */
+public class SpellsDAO {
+	/**
+	 * constructors Included constructor that receives a enumType
+	 */
 	SummonerSpells ss;
-	
-	public SpellsDAO(String nome, int tempo) {
-		super(nome, tempo);
+	private String name;
+	private int secs;
+
+	public SpellsDAO(String name, int secs) {
+		this.name = name;
+		this.secs = secs;
 	}
 
-	public SpellsDAO(SummonerSpells ss)
-	{
+	public SpellsDAO(SummonerSpells ss) {
 		this.ss = ss;
 	}
-	public SpellsDAO(String nome) {
-		super(nome);
+
+	public SpellsDAO(String name) {
+		this.name = name;
 	}
 
 	public SpellsDAO() {
-		super();
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return (this.name + " " +this.secs);
+	}
+
+	public int getSecs() {
+		return secs;
+	}
+
+	public void setSecs(int secs) {
+		this.secs = secs;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	/**
@@ -46,27 +68,29 @@ public class SpellsDAO extends Spells {
 	 *             name is actually null
 	 * @return informations that are on the enum and that match
 	 */
-	
-	public SpellsDAO toDao(SummonerSpells ss) {
-		SpellsDAO spellConverted = new SpellsDAO(ss);
-		return spellConverted;
-	}
 
-	public SpellsDAO verifySpell(String nome) throws IllegalArgumentException, NullPointerException {
-		SummonerSpells spell = null;
+	@SuppressWarnings("finally")
+	public SpellsDAO getSpell(String name) {
+		SummonerSpells ss = null;
 		SpellsDAO spellSaida = new SpellsDAO();
 		try {
-			spell = SummonerSpells.forName(nome.toUpperCase().trim());
+			ss = SummonerSpells.forName(name.toUpperCase().trim());
 		} catch (IllegalArgumentException iex) {
 			System.out.println(iex.toString());
 		} catch (NullPointerException nex) {
 			System.out.println(nex.toString());
+		} finally {
+			spellSaida = spellSaida.toDAO(ss);
+			return spellSaida;
 		}
-		spellSaida = spellSaida.toDao(spell);
-		return spellSaida;
-
 	}
 
+	public SpellsDAO toDAO(SummonerSpells ss) {
+		SpellsDAO spell = new SpellsDAO();
+		spell.name = ss.name().substring(0, 1);
+		spell.secs = ss.getSegundos();
+		return spell;
+	}
 
 	/**
 	 * 
@@ -76,15 +100,13 @@ public class SpellsDAO extends Spells {
 	 * 
 	 */
 
-	public String contagem(SummonerSpells spellToCount) {
-		SpellsDAO spells = new SpellsDAO();
-		SpellsDAO spell = spells.verifySpell(spellToCount.name());
-		spells = spells.verifySpell(spell.name());
-		return spellToCount.name() + spellToCount.getSegundos();
+	public void count(SpellsDAO spell) {
+		Countdown count = new Countdown();
+		count.CountdownToZero(spell.getName(), spell.getSecs());
 	}
 
-	public void count(int secs) {
-		Countdown count = new Countdown();
-		count.CountdownToZero(secs);
+	public void untilZero(SpellsDAO spell) {
+		spell.count(spell);
 	}
+
 }

@@ -2,20 +2,14 @@ package testes;
 
 import dao.SpellsDAO;
 
-public class TestaCleanse {
+public class TestaFlash {
 
 	public static void main(String[] args) {
-		String nome = "purificar";
+		String nome = "flash";
 		SpellsDAO spell = new SpellsDAO();
 		spell = spell.getSpell(nome);
 		System.out.println(spell);
 		spell.untilZero(spell);
-		
-		
-		/*
-		SpellsEvolvedDAO spell1 = new SpellsEvolvedDAO();
-		spell1 = spell1.verifyName(nome);
-		System.out.println(spell1);*/
-	
+
 	}
 }
